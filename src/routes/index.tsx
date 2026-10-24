@@ -175,9 +175,9 @@ function SectionHead({ title, badge, href, more = "সব দেখুন", icon
 }
 
 function Shopping() {
-  const [cat, setCat] = useState(productCats[0]);
+  const [cat, setCat] = useState<string>("সব আইটেম");
   const [page, setPage] = useState(0);
-  const list = cat === productCats[0] ? products : products.filter((p) => p.cat === cat);
+  const list = cat === "সব আইটেম" ? products : products.filter((p) => p.cat === cat);
   const per = 6;
   const pages = Math.max(1, Math.ceil(list.length / per));
   const shown = list.slice(page * per, page * per + per);
@@ -302,9 +302,9 @@ function LoginCard() {
 
 function Weather() {
   const names = Object.keys(cities);
-  const [city, setCity] = useState(names[0]);
+  const [city, setCity] = useState<string>(names[0] ?? "ঢাকা");
   const [stamp, setStamp] = useState("04:46 AM");
-  const w = cities[city];
+  const w = cities[city] ?? cities["ঢাকা"]!;
   return (
     <div className="card-surface p-5">
       <div className="flex items-center justify-between">
