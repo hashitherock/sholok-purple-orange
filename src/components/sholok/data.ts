@@ -73,4 +73,4 @@ export const cities = {
   রাজশাহী: { temp: 34, feels: 36, hum: 38, wind: 10, desc: "রৌদ্রোজ্জ্বল", hourly: [26, 26, 27, 28, 30, 31] },
 } as Record<string, { temp: number; feels: number; hum: number; wind: number; desc: string; hourly: number[] }>;
 
-export const bn = (n: number | string) => String(n).replace(/\d/g, (d) => "০১২৩৪৫৬৭৮৯"[+d]);
+export const bn = (n: number | string) => String(n).replace(/\d/g, (d) => "০১২৩৪৫৬৭৮৯"[+d] ?? d);
